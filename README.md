@@ -36,6 +36,8 @@ To train the model, run the `main.py` script on images located in 'preprocessed_
 
 python main.py 
 
+The model will be saved as the 'number_recognition_model.pth' in the main directory.
+
 ## Testing
 
 To run the test script in model_test_images.py for testing on all test images in a directory, use the following command:
