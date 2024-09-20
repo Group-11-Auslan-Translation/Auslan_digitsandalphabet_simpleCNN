@@ -21,7 +21,7 @@ The model is a simple CNN with the following layers:
 
 ## Preprocessing
 
-Images are taken from https://auslan.org.au/numbersigns.html Signbank, cropped in in image editor.
+Images are taken from https://auslan.org.au/numbersigns.html Signbank, cropped in an image editor.
 
 Before training, images are preprocessed using the following steps:
 1. **Resizing and Padding**: Images are resized to fit within a 256x256 pixel square while maintaining aspect ratio. They are then padded with a white background.
