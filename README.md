@@ -21,7 +21,7 @@ The model is a simple CNN with the following layers:
 
 - conv4: 128 input channels, 256 output channels, 3x3 kernel, ReLU activation.
 
-3 Max Pooling Layers: 2x2 kernel with stride 2.
+- 3 Max Pooling Layers: 2x2 kernel with stride 2.
 
 - **2 Fully Connected Layers**:
 
