@@ -14,9 +14,13 @@ The model is a simple CNN with the following layers:
 - **4 Convolutional Layers**:
 
 conv1: 1 input channel, 32 output channels, 3x3 kernel, ReLU activation.
+
 conv2: 32 input channels, 64 output channels, 3x3 kernel, ReLU activation.
+
 conv3: 64 input channels, 128 output channels, 3x3 kernel, ReLU activation.
+
 conv4: 128 input channels, 256 output channels, 3x3 kernel, ReLU activation.
+
 3 Max Pooling Layers: 2x2 kernel with stride 2.
 
 - **2 Fully Connected Layers**:
