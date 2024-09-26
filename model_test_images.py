@@ -57,6 +57,9 @@ def test_model_on_directory(image_dir, model_path):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
+    correct_predictions = 0
+    total_images = 0
+
     # Iterate over all images in the directory
     for image_file in os.listdir(image_dir):
         image_path = os.path.join(image_dir, image_file)
@@ -65,13 +68,32 @@ def test_model_on_directory(image_dir, model_path):
             unseen_image = preprocess_test_image(image_path)
             unseen_image = unseen_image.to(device)
 
+            # Extract the true label from the file name
+            label_part = image_file.split('_')[0].split('.')[
+                0]  # Extract the main label part before any underscores or dots
+            if label_part.isdigit():  # Handle digits 0-9
+                true_label = int(label_part)
+            elif len(label_part) == 1 and label_part.isalpha():  # Handle letters A-Z
+                true_label = ord(label_part.upper()) - ord('A') + 10
+            else:
+                raise ValueError(f"Unexpected label format in filename: {image_file}")
+
             # Perform inference
             with torch.no_grad():
                 outputs = model(unseen_image)
                 _, predicted_label = torch.max(outputs, 1)
 
+            # Update the count of correct predictions
+            if predicted_label.item() == true_label:
+                correct_predictions += 1
+            total_images += 1
+
             # Print the predicted label
-            print(f"Image: {image_file} -> Predicted Label: {predicted_label.item()}")
+            print(f"Image: {image_file} -> Predicted Label: {predicted_label.item()}, True Label: {true_label}")
+
+    # Calculate and print the accuracy
+    accuracy = (correct_predictions / total_images) * 100 if total_images > 0 else 0
+    print(f"Accuracy: {accuracy:.2f}% ({correct_predictions}/{total_images} correct predictions)")
 
 
 if __name__ == "__main__":
