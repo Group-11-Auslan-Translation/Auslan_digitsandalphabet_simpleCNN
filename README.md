@@ -2,7 +2,7 @@
 
 # Hand Sign (AUSLAN) Number Recognition with CNN
 
-This project implements a simple Convolutional Neural Network (CNN) to classify hand sign images representing numbers (0-9). The model is trained on grayscale images that have been preprocessed using techniques like resizing, padding, Gaussian blurring, and adaptive thresholding.
+This project implements a simple Convolutional Neural Network (CNN) to classify hand sign images representing numbers (0-9) and Alphabets (A-Z). The model is trained on grayscale images that have been preprocessed using techniques like resizing, padding, Gaussian blurring, and adaptive thresholding.
 
 ## Project Structure
 
